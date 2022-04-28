@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
+
+$margin-size: 15px 0;
+$main-color: rgba(19, 35, 47, 0.9);
+$second-color: white;
+$third-color: #1ab188;
+$third-color-hover: #229e7d;
+$button-off-color: rgba(160, 179, 176, 0.25);
+
+%flex-row-space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+%button-hover {
+    cursor: pointer;
+    background-color: $third-color-hover;
+}
+
+body {
+    background-color: #c1bdba;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.056);
+    z-index: 1;
+}
+
+.form-container {
+    width: 350px;
+    margin: 10% auto;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.51);
+    background-color: $main-color;
+    color: $second-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 2em;
+    font-family: 'Titillium Web', sans-serif;
+
+    .header {
+        font-weight: 400;
+        text-align: center;
+        margin: $margin-size;
+    }
+
+    .input-container {
+        @extend %flex-row-space-between;
+    }
+
+    .form-input {
+        border: none;
+        height: 25px;
+        background-color: transparent;
+        border: 1px solid $second-color;
+        margin: $margin-size;
+        color: inherit;
+    }
+
+    
+    .control-buttons {
+        @extend %flex-row-space-between;
+        margin: $margin-size;
+        
+        .button-normal {
+            flex-grow: 1;
+            height: 40px;
+            border: none;
+            color: inherit;
+            font-size: 1em;
+            font-weight: lighter;
+            transition: background-color 300ms ease-in-out;
+        }
+
+        .button-on {
+        background-color: $third-color;
+        &:hover  {
+           @extend %button-hover;
+            }
+        }
+
+        .button-off {
+        background-color: $button-off-color;
+        &:hover  {
+           @extend %button-hover;
+            }
+        }
+    }
+
+    
+    .submit-button {
+        height: 45px;
+        border: none;
+        background-color: $third-color;
+        color: inherit;
+        font-size: 1.8em;
+        margin: $margin-size;
+        &:hover  {
+            @extend %button-hover;
+            }
+    }   
+}
